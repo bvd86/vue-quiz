@@ -1,10 +1,14 @@
 <template>
   <div class="ctr">
-    <QuizQuestions v-if="questionAnswered < questions.length"
+    <QuizQuestions v-if="questionsAnswered < questions.length"
     :questions="questions"
+    :questionsAnswered="questionsAnswered"
+    @question-answered="questionAnswered"
     />
-    <QuizResult v-else/>
-    <button type="button" class="reset-btn">Reset</button>
+    <QuizResult v-else :results="results" :totalCorrect="totalCorrect"/>
+    <button type="button" class="reset-btn" @click.prevent="reset"
+    v-if="questionsAnswered === questions.length"
+   >Reset</button>
   </div>
 </template>
 
@@ -20,7 +24,8 @@ import QuizResult from "./components/QuizResult.vue";
     },
     data() {
       return {
-        questionAnswered: 0,
+        questionsAnswered: 0,
+        totalCorrect: 0,
         questions: [
         {
           q: 'What is 2 + 2?',
@@ -81,8 +86,8 @@ import QuizResult from "./components/QuizResult.vue";
             }
           ]
         },
-    ],
-    results: [
+      ],
+      results: [
       {
         min: 0,
         max: 2,
@@ -95,8 +100,20 @@ import QuizResult from "./components/QuizResult.vue";
         title: "Wow, you're a genius!",
         desc: "Studying has definitely paid off for you!"
       }
-    ]
+      ]
     }
-  }
-}
+  },
+  methods: {
+    questionAnswered(is_correct) {
+      if(is_correct) {
+        this.totalCorrect++;
+      }
+      this.questionsAnswered++;
+    },
+    reset() {
+      this.questionsAnswered = 0;
+      this.totalCorrect = 0;
+    },
+  },
+};
 </script>
