@@ -28,61 +28,61 @@ import QuizResult from "./components/QuizResult.vue";
         totalCorrect: 0,
         questions: [
         {
-          q: 'What is 2 + 2?',
+          q: 'What is the name of a markup language?',
           answers: [
             {
-              text: '4',
+              text: 'HTML',
               is_correct: true
             },
             {
-              text: '3',
+              text: 'CSS',
               is_correct: false
             },
             {
-              text: 'Fish',
+              text: 'JavaScript',
               is_correct: false
             },
             {
-              text: '5',
+              text: 'Python',
               is_correct: false
             }
           ]
         },
         {
-          q: 'How many letters are in the word "Banana"?',
+          q: 'What does DB mean in programming?',
           answers: [
             {
-              text: '5',
+              text: 'Double Bass',
               is_correct: false
             },
             {
-              text: '7',
+              text: 'Data Bound',
               is_correct: false
             },
             {
-              text: '6',
+              text: 'Data Base',
               is_correct: true
             },
             {
-              text: '12',
+              text: 'Double Base',
               is_correct: false
             }
           ]
         },
         {
-          q: 'Find the missing letter: C_ke',
+          q: 'What is Full Stack?',
           answers: [
             {
-              text: 'e',
+              text: 'Pancakes',
               is_correct: false
             },
             {
-              text: 'a',
+              text: 'A Developer',
+              is_correct: false
+            },
+            {
+              text: 'Both',
               is_correct: true
-            },
-            {
-              text: 'i',
-              is_correct: false
             }
           ]
         },
