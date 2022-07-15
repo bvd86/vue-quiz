@@ -1,15 +1,18 @@
 <template>
   <div class="ctr">
-    <QuizQuestions v-if="questionsAnswered < questions.length"
-    :questions="questions"
-    :questionsAnswered="questionsAnswered"
-    @question-answered="questionAnswered"
-    />
-    <QuizResult v-else :results="results" :totalCorrect="totalCorrect"/>
+    <transition name="fade" mode="out-in">
+      <QuizQuestions v-if="questionsAnswered < questions.length"
+      :questions="questions"
+      :questionsAnswered="questionsAnswered"
+      @question-answered="questionAnswered"
+      />
+      <QuizResult v-else :results="results" :totalCorrect="totalCorrect"/>
+    </transition>
     <button type="button" class="reset-btn" @click.prevent="reset"
     v-if="questionsAnswered === questions.length"
    >Reset</button>
   </div>
+
 </template>
 
 <script>
